@@ -6,6 +6,7 @@ SELECT DISTINCT
 FROM public.shipping s;
 
 INSERT INTO public.shipping_agreement
+(agreementid,agreement_number,agreement_rate,agreement_commission)
 SELECT DISTINCT 
 	   (regexp_split_to_array(vendor_agreement_description,':'))[1]::int AS agreementid,
 	   (regexp_split_to_array(vendor_agreement_description,':'))[2]::varchar(30) AS agreement_number,
